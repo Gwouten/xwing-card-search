@@ -9,6 +9,12 @@ const filtersDefault = {
 
 const filtersReducer = (state = filtersDefault, action) => {
   switch(action.type) {
+    case 'SET_TEXT_FILTERS':
+    return {
+      ...state,
+      text: action.text
+    }
+
     default:
     return state;
   }

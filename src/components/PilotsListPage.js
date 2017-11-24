@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startPilotsList } from '../actions/pilots';
 import SinglePilot from '../components/SinglePilot';
+import filterResults from '../visibility/visibility';
 
 class PilotsList extends React.Component {
 
@@ -22,7 +23,7 @@ class PilotsList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { pilots: state.pilots };
+  return { pilots: filterResults(state.filters, state.pilots) };
 }
 
 const mapDispatchToProps = (dispatch) => ({
