@@ -15,15 +15,19 @@ class ListPage extends React.Component {
         <div className="box-layout__box">
           <button className="button" onClick={startLogin}>Login with Google</button>
         </div>
-        <PilotsList />
-        <UpgradesList />
+        {this.props.filters.cardTypePilot && <PilotsList />}
+        {this.props.filters.cardTypeUpgrade && <UpgradesList />}
       </div>
     )
   }
 }
 
+const mapStateToProps = (state) => ({
+  filters: state.filters
+});
+
 const mapDispatchToProps = (dispatch) => ({
   startLogin: () => dispatch(startLogin()),
 });
 
-export default connect(undefined, mapDispatchToProps)(ListPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ListPage);

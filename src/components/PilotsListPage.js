@@ -22,9 +22,10 @@ class PilotsList extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { pilots: filterResults(state.filters, state.pilots) };
-}
+const mapStateToProps = (state) => (
+  { pilots: filterResults(state.filters, state.pilots) }
+);
+
 
 const mapDispatchToProps = (dispatch) => ({
   startLogin: () => dispatch(startLogin()),

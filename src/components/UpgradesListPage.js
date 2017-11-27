@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startUpgradesList } from '../actions/upgrades';
 import SingleUpgrade from '../components/SingleUpgrade';
+import filterResults from '../visibility/visibility';
 
 class UpgradesList extends React.Component {
 
@@ -22,7 +23,7 @@ class UpgradesList extends React.Component {
 }
 
 const mapStateToProps = (state) => (
-  { upgrades: state.upgrades }
+  { upgrades: filterResults(state.filters, state.upgrades) }
 );
 
 const mapDispatchToProps = (dispatch) => ({

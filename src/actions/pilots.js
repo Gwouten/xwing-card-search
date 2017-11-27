@@ -12,6 +12,6 @@ export const startPilotsList = (url) => (dispatch) => {
       dispatch(pilotsList(pilots))
     })
     .catch((error) => {
-      console.log('An error has occured', error);
+      console.log('pilots.actons: An error has occured', error);
     });
   };

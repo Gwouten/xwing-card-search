@@ -1,9 +1,17 @@
 export const filterResults = ({ text }, data) => {
-  console.log('data', data);
-  console.log('text', text);
   return data.filter((item) => {
-    console.log('item', item);
-    return item.text.includes(text);
+    const queryText = text.toLowerCase();
+    const itemName = item.name.toLowerCase();
+    let itemText = '';
+    if(item.hasOwnProperty('text')){
+      itemText = item.text.toLowerCase();
+    }
+
+    if (itemName.includes(queryText) || itemText.includes(queryText)) {
+      return true;
+    } else {
+      return false;
+    }
   });
 };
 
