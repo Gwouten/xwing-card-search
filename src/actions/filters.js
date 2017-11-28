@@ -28,4 +28,9 @@ export const setMaxPointsFilters = (maxPoints) => ({
   maxPoints
 });
 
+export const setSortMethod = (sortMethod) => ({
+  type: 'SET_SORT_METHOD',
+  sortMethod
+});
+
 export const startSetFilters = (filters) => (dispatch) => dispatch(setFilters(filters));

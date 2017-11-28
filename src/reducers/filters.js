@@ -4,7 +4,8 @@ const filtersDefault = {
   cardTypePilot: true,
   cardTypeUpgrade: true,
   minPoints: -3,
-  maxPoints: 100
+  maxPoints: 100,
+  sortMethod: 'sortAZ'
 };
 
 const filtersReducer = (state = filtersDefault, action) => {
@@ -25,6 +26,30 @@ const filtersReducer = (state = filtersDefault, action) => {
     return {
       ...state,
       cardTypeUpgrade: action.cardTypeUpgrade
+    }
+
+    case 'SET_FACTION_FILTERS':
+    return {
+      ...state,
+      faction: action.faction
+    }
+
+    case 'SET_MIN_POINTS_FILTERS':
+    return {
+      ...state,
+      minPoints: action.minPoints
+    }
+
+    case 'SET_MAX_POINTS_FILTERS':
+    return {
+      ...state,
+      maxPoints: action.maxPoints
+    }
+
+    case 'SET_SORT_METHOD':
+    return {
+      ...state,
+      sortMethod: action.sortMethod
     }
 
     default:

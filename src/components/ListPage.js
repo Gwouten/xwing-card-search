@@ -15,8 +15,10 @@ class ListPage extends React.Component {
         <div className="box-layout__box">
           <button className="button" onClick={startLogin}>Login with Google</button>
         </div>
-        {this.props.filters.cardTypePilot && <PilotsList />}
-        {this.props.filters.cardTypeUpgrade && <UpgradesList />}
+        <div className="content-container">
+          {this.props.filters.cardTypePilot && <PilotsList />}
+          {this.props.filters.cardTypeUpgrade && <UpgradesList />}
+        </div>
       </div>
     )
   }

@@ -1,9 +1,11 @@
 .text-input {
-  border: 1px solid #cacccd;
+  border: 1px solid $light-grey;
+  border-right: 0;
   height: 50px;
   font-size: $font-size-large;
   font-weight: 300;
   padding: $s-size;
+  width: 100%;
 }
 
 .select {
@@ -13,4 +15,11 @@
 .textarea {
   @extend .text-input;
   height: 10rem;
+}
+
+.number-input {
+  @extend .text-input;
+  padding: $s-size 0;
+  text-align: center;
+  width: 50%;
 }

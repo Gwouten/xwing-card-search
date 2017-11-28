@@ -1,0 +1,16 @@
+.cardlist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.cardlist__card {
+  border: 1px solid $light-grey;
+  margin-bottom: $l-size;
+  padding: $m-size;
+  width: 100%;
+  @media (min-width: $desktop-breakpoint) {
+    // width: 50%;
+  }
+}

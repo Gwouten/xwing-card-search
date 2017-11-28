@@ -1,0 +1,17 @@
+.filter-header {
+  display: flex;
+  font-family: 'Wallpoet', cursive;
+  justify-content: space-between;
+}
+
+.filter-header__column {
+  width: 33%;
+  border-right: 1px solid $light-grey;
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.filter-header__title {
+  text-align: center;
+}

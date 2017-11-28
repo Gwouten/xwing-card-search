@@ -12,11 +12,11 @@ class PilotsList extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="cardlist">
         <h2>Pilots</h2>
-        {this.props.pilots.map((pilot) => {
-          return <SinglePilot key={pilot.id} {...pilot} />;
-        })}
+          {this.props.pilots.map((pilot) => {
+            return <SinglePilot key={pilot.id} {...pilot} />;
+          })}
       </div>
     );
   }
