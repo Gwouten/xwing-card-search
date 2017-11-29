@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startPilotsList } from '../actions/pilots';
 import SinglePilot from '../components/SinglePilot';
+import PilotsFilter from '../components/PilotsFilter';
 import filterResults from '../visibility/visibility';
 
 class PilotsList extends React.Component {
@@ -13,6 +14,7 @@ class PilotsList extends React.Component {
   render() {
     return (
       <div className="cardlist">
+        <PilotsFilter />
         <h2>Pilots</h2>
           {this.props.pilots.map((pilot) => {
             return <SinglePilot key={pilot.id} {...pilot} />;
@@ -22,9 +24,11 @@ class PilotsList extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => (
-  { pilots: filterResults(state.filters, state.pilots) }
-);
+const mapStateToProps = (state) => {
+  console.log(state);
+  return (
+  { pilots: filterResults(state.filters, state.pilots, state.pilotsFilter) }
+)};
 
 
 const mapDispatchToProps = (dispatch) => ({
