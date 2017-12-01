@@ -23,8 +23,6 @@ export const filterPilotResults = ({ text, faction, minPoints = -3, maxPoints = 
     }
   }
 
-  console.log(newSlots);
-
   // filterString
   const filterString = (item) => {
     const queryText = text.toLowerCase();
