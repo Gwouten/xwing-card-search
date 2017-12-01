@@ -37,7 +37,8 @@ class Filter extends React.Component {
 
   handleClear = (e) => {
     e.preventDefault();
-    e.target.parentElement.elements.textQuery.value = '';
+    console.log(e.target.parentElement.firstChild);
+    e.target.parentElement.firstChild.value = '';
     this.props.setTextFilters('');
   }
 
@@ -79,7 +80,7 @@ class Filter extends React.Component {
 
           <div className="filter-header__column">
             <h2 className="filter-header__title">Card Type</h2>
-            <input className="checkbox" type="checkbox" id="pilot" name="pilot" value="pilot" checked={this.props.filters.cardTypePilot} onChange={this.onPilotSelected} /><label className="label" htmlFor="pilot">Pilot</label>
+            <input className="checkbox" type="checkbox" id="pilot"   name="pilot"   value="pilot"   checked={this.props.filters.cardTypePilot}   onChange={this.onPilotSelected}   /><label className="label" htmlFor="pilot">Pilot</label>
             <input className="checkbox" type="checkbox" id="upgrade" name="upgrade" value="upgrade" checked={this.props.filters.cardTypeUpgrade} onChange={this.onUpgradeSelected} /><label className="label" htmlFor="upgrade">Upgrade</label>
           </div>
 
