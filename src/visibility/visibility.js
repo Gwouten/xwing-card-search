@@ -8,14 +8,19 @@ export const filterPilotResults = ({ text, faction, minPoints = -3, maxPoints = 
   let newSlots = [];
   let object = {}
 
-  for(let i=0; i < array.length; i++){
-    if(newArray.indexOf(array[i]) === -1) {
-      object[array[i]] = [array[i]];
-      newArray.push(array[i]);
-    } else {
-      object[array[i]].push(array[i]);
+  array.map((item) => {
+    if(item === 'Salvaged Astromech'){
+      console.log(item);
+      item = 'Aggromech';
+      console.log(item);
     }
-  }
+    if(newArray.indexOf(item) === -1) {
+      object[item] = [item];
+      newArray.push(item);
+    } else {
+      object[item].push(item);
+    }
+  })
 
   for (var key in object) {
     if(object.hasOwnProperty(key)){
@@ -85,7 +90,7 @@ export const filterPilotResults = ({ text, faction, minPoints = -3, maxPoints = 
 
   // filter on upgrade slots
   .filter((item) => {
-    const itemSlotsSorted = item.slots.sort().join('');
+    const itemSlotsSorted = item.slots.sort().join('').replace(/(Salvaged Astromech)/, 'Aggromech');
     let verified = [];
     newSlots.map((slot) => {
       verified.push(itemSlotsSorted.includes(slot));
