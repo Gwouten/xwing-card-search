@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { startUpgradesList } from '../actions/upgrades';
+import UpgradesFilter from '../components/UpgradesFilter';
 import SingleUpgrade from '../components/SingleUpgrade';
 import { filterUpgradeResults } from '../visibility/visibility';
 
@@ -13,6 +14,7 @@ class UpgradesList extends React.Component {
   render() {
     return (
       <div className="cardlist">
+        <UpgradesFilter />
         <h2>Upgrades</h2>
         {this.props.upgrades.map((upgrade) => {
           return <SingleUpgrade key={upgrade.id} {...upgrade} />;
@@ -23,7 +25,7 @@ class UpgradesList extends React.Component {
 }
 
 const mapStateToProps = (state) => (
-  { upgrades: filterUpgradeResults(state.filters, state.upgrades) }
+  { upgrades: filterUpgradeResults(state.filters, state.upgrades, state.upgradesFilter) }
 );
 
 const mapDispatchToProps = (dispatch) => ({

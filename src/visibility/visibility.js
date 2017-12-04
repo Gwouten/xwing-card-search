@@ -9,18 +9,18 @@ export const filterPilotResults = ({ text, faction, minPoints = -3, maxPoints = 
   let object = {}
 
   array.map((item) => {
+    // replace string 'Salvaged Astromech' with 'Aggromech'
     if(item === 'Salvaged Astromech'){
-      console.log(item);
       item = 'Aggromech';
-      console.log(item);
     }
+
     if(newArray.indexOf(item) === -1) {
       object[item] = [item];
       newArray.push(item);
     } else {
       object[item].push(item);
     }
-  })
+  });
 
   for (var key in object) {
     if(object.hasOwnProperty(key)){
@@ -103,7 +103,7 @@ export const filterPilotResults = ({ text, faction, minPoints = -3, maxPoints = 
   .sort(sortMethodFunction(sortMethod));
 };
 
-export const filterUpgradeResults = ({ text, faction, minPoints = -3, maxPoints = 100, sortMethod }, data) => {
+export const filterUpgradeResults = ({ text, faction, minPoints = -3, maxPoints = 100, sortMethod }, data, slots) => {
 
   const filterString = (item) => {
     const queryText = text.toLowerCase();
@@ -160,8 +160,9 @@ export const filterUpgradeResults = ({ text, faction, minPoints = -3, maxPoints 
   })
 
   // filter on min and max values
-  .filter((item) => {
-    return item.points >= minPoints && item.points <= maxPoints;
-  })
+  .filter((item) => item.points >= minPoints && item.points <= maxPoints)
+
+  // filter on card type
+  .filter((item) => slots.includes(item.slot))
   .sort(sortMethodFunction(sortMethod));
 };
