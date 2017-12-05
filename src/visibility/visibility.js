@@ -1,5 +1,58 @@
 import sortMethodFunction from './sortMethods';
 
+// filterString
+const filterString = (item, text) => {
+  const queryText = text.toLowerCase();
+  const itemName = item.name.toLowerCase();
+  let itemText = '';
+  if(item.hasOwnProperty('text')){
+    itemText = item.text.toLowerCase();
+  }
+
+  if (itemName.includes(queryText) || itemText.includes(queryText)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// filter on faction
+const filterFaction = (item, faction) => {
+  if(faction === 'any') {
+    return true;
+  } else {
+    // Set all subfactions to standard factions
+    let itemFaction = '';
+    switch(item.faction) {
+      case 'Rebel Alliance':
+      itemFaction = 'rebel';
+      return itemFaction === faction;
+
+      case 'Galactic Empire':
+      itemFaction = 'empire';
+      return itemFaction === faction;
+
+      case 'Scum and Villainy':
+      itemFaction = 'scum';
+      return itemFaction === faction;
+
+      case 'First Order':
+      itemFaction = 'empire';
+      return itemFaction === faction;
+
+      case 'Resistance':
+      itemFaction = 'rebel';
+      return itemFaction === faction;
+
+      default:
+      itemFaction = 'any';
+    }
+  }
+}
+
+// filter on points values
+const filterValues = (item, minPoints, maxPoints) => item.points >= minPoints && item.points <= maxPoints
+
 export const filterPilotResults = ({ text, faction, minPoints = -3, maxPoints = 100, sortMethod }, data, slots) => {
 
   // fix slots array from arguments to make duplicate string a single string, ex.: ["two", "two"] -> ["twotwo"]
@@ -28,66 +81,10 @@ export const filterPilotResults = ({ text, faction, minPoints = -3, maxPoints = 
     }
   }
 
-  // filterString
-  const filterString = (item) => {
-    const queryText = text.toLowerCase();
-    const itemName = item.name.toLowerCase();
-    let itemText = '';
-    if(item.hasOwnProperty('text')){
-      itemText = item.text.toLowerCase();
-    }
-
-    if (itemName.includes(queryText) || itemText.includes(queryText)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   return data
-
-  // Filter on search string from input
-  .filter((item) => filterString(item))
-
-  // filter on faction
-  .filter((item) => {
-    if(faction === 'any') {
-      return true;
-    } else {
-      // Set all subfactions to standard factions
-      let itemFaction = '';
-      switch(item.faction) {
-        case 'Rebel Alliance':
-        itemFaction = 'rebel';
-        return itemFaction === faction;
-
-        case 'Galactic Empire':
-        itemFaction = 'empire';
-        return itemFaction === faction;
-
-        case 'Scum and Villainy':
-        itemFaction = 'scum';
-        return itemFaction === faction;
-
-        case 'First Order':
-        itemFaction = 'empire';
-        return itemFaction === faction;
-
-        case 'Resistance':
-        itemFaction = 'rebel';
-        return itemFaction === faction;
-
-        default:
-        itemFaction = 'any';
-      }
-    }
-  })
-
-  // filter on min and max values
-  .filter((item) => {
-    return item.points >= minPoints && item.points <= maxPoints;
-  })
-
+  .filter((item) => filterString(item, text))
+  .filter((item) => filterFaction(item, faction))
+  .filter((item) => filterValues(item, minPoints, maxPoints))
   // filter on upgrade slots
   .filter((item) => {
     const itemSlotsSorted = item.slots.sort().join('').replace(/(Salvaged Astromech)/, 'Aggromech');
@@ -105,63 +102,10 @@ export const filterPilotResults = ({ text, faction, minPoints = -3, maxPoints = 
 
 export const filterUpgradeResults = ({ text, faction, minPoints = -3, maxPoints = 100, sortMethod }, data, slots) => {
 
-  const filterString = (item) => {
-    const queryText = text.toLowerCase();
-    const itemName = item.name.toLowerCase();
-    let itemText = '';
-    if(item.hasOwnProperty('text')){
-      itemText = item.text.toLowerCase();
-    }
-
-    if (itemName.includes(queryText) || itemText.includes(queryText)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   return data
-
-  // Filter on search string from input
-  .filter((item) => filterString(item))
-
-  // filter on faction
-  .filter((item) => {
-    if(faction === 'any') {
-      return true;
-    } else {
-      // Set all subfactions to standard factions
-      let itemFaction = '';
-      switch(item.faction) {
-        case 'Rebel Alliance':
-        itemFaction = 'rebel';
-        return itemFaction === faction;
-
-        case 'Galactic Empire':
-        itemFaction = 'empire';
-        return itemFaction === faction;
-
-        case 'Scum and Villainy':
-        itemFaction = 'scum';
-        return itemFaction === faction;
-
-        case 'First Order':
-        itemFaction = 'empire';
-        return itemFaction === faction;
-
-        case 'Resistance':
-        itemFaction = 'rebel';
-        return itemFaction === faction;
-
-        default:
-        itemFaction = 'any';
-      }
-    }
-  })
-
-  // filter on min and max values
-  .filter((item) => item.points >= minPoints && item.points <= maxPoints)
-
+  .filter((item) => filterString(item, text))
+  .filter((item) => filterFaction(item, faction))
+  .filter((item) => filterValues(item, minPoints, maxPoints))
   // filter on card type
   .filter((item) => {
     if(slots.length === 0) {

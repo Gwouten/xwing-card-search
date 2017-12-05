@@ -37,7 +37,6 @@ class Filter extends React.Component {
 
   handleClear = (e) => {
     e.preventDefault();
-    console.log(e.target.parentElement.firstChild);
     e.target.parentElement.firstChild.value = '';
     this.props.setTextFilters('');
   }
