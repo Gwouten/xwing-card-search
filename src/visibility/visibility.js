@@ -163,6 +163,12 @@ export const filterUpgradeResults = ({ text, faction, minPoints = -3, maxPoints 
   .filter((item) => item.points >= minPoints && item.points <= maxPoints)
 
   // filter on card type
-  .filter((item) => slots.includes(item.slot))
+  .filter((item) => {
+    if(slots.length === 0) {
+      return true;
+    } else {
+      return slots.includes(item.slot);
+    }
+  })
   .sort(sortMethodFunction(sortMethod));
 };
