@@ -13,10 +13,6 @@ import {
 
 class Filter extends React.Component {
 
-  ComponentDidMount () {
-
-  }
-
   onTextFilter = (e) => {
     const text = e.target.value;
     this.props.setTextFilters(text);

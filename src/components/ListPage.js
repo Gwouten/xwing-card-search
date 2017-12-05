@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { startLogin } from '../actions/auth';
 import Header from './Header';
 import Filter from './Filter';
+import Builder from './Builder';
 import PilotsList from './PilotsListPage';
 import UpgradesList from './UpgradesListPage';
 
@@ -15,6 +16,7 @@ class ListPage extends React.Component {
         <div className="box-layout__box">
           <button className="button" onClick={startLogin}>Login with Google</button>
         </div>
+        <Builder />
         <div className="content-container">
           {this.props.filters.cardTypePilot && <PilotsList />}
           {this.props.filters.cardTypeUpgrade && <UpgradesList />}
