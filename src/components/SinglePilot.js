@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import convertToIcon from '../helpers/convertToIcon';
+import { builderSetPilot } from '../actions/builder';
 
 class SinglePilot extends React.Component {
 
   onAddPilot = () => {
-    console.log(this.props);
+    this.props.addPilot(this.props);
   }
 
   render(){
@@ -24,4 +26,8 @@ class SinglePilot extends React.Component {
   }
 }
 
-export default SinglePilot;
+const mapDispatchToProps = (dispatch) => ({
+  addPilot: (pilot) => dispatch(builderSetPilot(pilot))
+});
+
+export default connect(undefined, mapDispatchToProps)(SinglePilot);

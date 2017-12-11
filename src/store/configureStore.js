@@ -7,6 +7,7 @@ import filtersReducer from '../reducers/filters';
 import pilotsFilterReducer from '../reducers/pilotsFilter';
 import upgradesFilterReducer from '../reducers/upgradesFilter';
 import builderReducer from '../reducers/builderReducer';
+// import logger from 'redux-logger';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
