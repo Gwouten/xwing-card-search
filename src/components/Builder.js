@@ -1,8 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { builderRemovePilot } from '../actions/builder';
+import { builderRemovePilot, builderSetup } from '../actions/builder';
+import { setFactionFilters } from '../actions/filters';
+import { convertFactionNames } from '../helpers/convertFactionNames';
 
 class Builder extends React.Component {
+
+  builderSetup = (e) => {
+    e.preventDefault();
+    const squadName = e.target.squadName.value;
+    const squadFaction = e.target.squadFaction.value;
+    const squadPoints = e.target.squadPoints.value;
+    const setFactionFilter = e.target.squadFaction.value;
+    console.log(setFactionFilter);
+    this.props.builderSetup(squadName, squadFaction, squadPoints);
+    this.props.setFactionFilters(convertFactionNames(setFactionFilter));
+  }
 
   builderRemovePilot = (e) => {
     const pilotIndex = e.target.parentElement.getAttribute('data-index');
@@ -14,7 +27,21 @@ class Builder extends React.Component {
     // {console.log(this.props.builder.pilots)}
     return (
     <div>
-      <h1>{this.props.builder.name}</h1>
+      <form onSubmit={this.builderSetup}>
+        <label>Squad name: </label>
+        <input type="text" name="squadName" defaultValue="Squad name" />
+        <label>Faction: </label>
+        <select name="squadFaction">
+          <option data-faction="rebel">Rebel Alliance</option>
+          <option data-faction="empire">Galactic Empire</option>
+          <option data-faction="scum">Scum and Villainy</option>
+        </select>
+        <label>Points range</label>
+        <input type="number" name="squadPoints" defaultValue="100" />
+        <button>Build squad</button>
+      </form>
+
+      <h1>{this.props.builder.name} - {this.props.builder.faction} - {this.props.builder.points}</h1>
       <div className="squadlist">
       {this.props.builder.pilots.map((pilot, i) => {
         return (
@@ -36,7 +63,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  builderRemovePilot: (pilotIndex) => dispatch(builderRemovePilot(pilotIndex))
+  builderRemovePilot: (pilotIndex) => dispatch(builderRemovePilot(pilotIndex)),
+  builderSetup: (squadName, squadFaction, squadPoints) => dispatch(builderSetup(squadName, squadFaction, squadPoints)),
+  setFactionFilters: (faction) => dispatch(setFactionFilters(faction)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Builder);

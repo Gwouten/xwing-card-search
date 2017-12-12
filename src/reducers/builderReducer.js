@@ -9,6 +9,15 @@ const builderDefault = {
 
 const builderReducer = (state = builderDefault, action) => {
   switch(action.type) {
+    case 'BUILDER_SETUP_SQUAD':
+    return {
+      ...state,
+      name: action.squadName,
+      faction: action.squadFaction,
+      points: action.squadPoints
+    };
+
+
     case 'BUILDER_SET_PILOT':
     return {
       ...state,
