@@ -3,7 +3,7 @@ export const builderSetPilot = (pilot) => ({
   pilot
 });
 
-export const builderRemovePilot = (i) => ({
+export const builderRemovePilot = (pilotIndex) => ({
   type: 'BUILDER_REMOVE_PILOT',
-  i
+  pilotIndex
 });

@@ -17,9 +17,10 @@ const builderReducer = (state = builderDefault, action) => {
 
 
     case 'BUILDER_REMOVE_PILOT':
+    state.pilots.splice(action.pilotIndex, 1)
     return {
       ...state,
-      pilots: [...state.pilots].splice(action.i, 1)
+      pilots: state.pilots
     };
 
 
