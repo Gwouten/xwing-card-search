@@ -1,0 +1,33 @@
+.cardlist__card {
+  border-bottom: 1px solid $light-grey;
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+.cardlist__card__title {
+  font-family: $jura;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.cardlist__card__subtitle {
+  @extend .cardlist__card__title;
+  margin-top: $s-size;
+}
+.cardlist__card__footer {
+  display: flex;
+  justify-content: space-between;
+}
+.cardlist__card__icons {
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+}
+.cardlist__card__icons__icon {
+  display: inline-block;
+  margin: $s-size/2;
+  transform: translateY(-12px);
+}
+.cardlist__footer__points {
+}
