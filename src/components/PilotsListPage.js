@@ -13,9 +13,9 @@ class PilotsList extends React.Component {
 
   render() {
     return (
-      <div className="cardlist">
+      <div className="content-container pilotslist">
+        <h2 className="pilotslist__title">Pilots</h2>
         <PilotsFilter />
-        <h2>Pilots</h2>
           {this.props.pilots.length === 0 ?  <p>No pilots match the slected criteria...</p> : this.props.pilots.map((pilot) => {
             return <SinglePilot key={pilot.id} {...pilot} />;
           })}

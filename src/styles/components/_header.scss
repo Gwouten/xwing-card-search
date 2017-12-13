@@ -1,18 +1,19 @@
 .header {
   background: $dark-blue;
+  padding: $s-size;
 }
-
-.header__content {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  padding: $s-size 0;
-}
-
-.header__title {
-  color: white;
+.header__title{
+  color: $white;
+  font-family: $jura;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-align: center;
   text-decoration: none;
-  h1 {
-    margin: 0;
-  }
+  text-transform: uppercase;
+}
+.header__title__text {
+  margin: 0;
+}
+.header__button {
+  display: none;
 }

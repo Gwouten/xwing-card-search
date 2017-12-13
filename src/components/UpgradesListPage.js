@@ -13,7 +13,7 @@ class UpgradesList extends React.Component {
 
   render() {
     return (
-      <div className="cardlist">
+      <div>
         <UpgradesFilter />
         <h2>Upgrades</h2>
         {this.props.upgrades.map((upgrade) => {
