@@ -24,7 +24,7 @@ class BuilderPilot extends React.Component {
       <div>
         <h3>{name} ({skill})</h3>
         <h4>{ship} ({points})</h4>
-        <p>{text}</p>
+        <p onMouseOver={() => console.log('you are hovering this element')}>{text}</p>
         <label>Modification</label>
         <select onChange={this.builderAddUpgrade}>
           {
@@ -32,11 +32,8 @@ class BuilderPilot extends React.Component {
             .filter((upgrade) => upgrade.slot === 'Modification')
             .filter((upgrade) => upgrade.faction === faction || !upgrade.faction)
             .map((upgrade, i) =>
-              <option
-                key={i}
-                onMouseOver={this.builderShowUpgradeDetails}>
-                {upgrade.name}
-              </option>
+              <option key={i}
+                onMouseOverCapture={() => console.log('you are hovering this option element')}>{upgrade.name} ({upgrade.points})</option>
             )
           }
         </select>
@@ -50,7 +47,7 @@ class BuilderPilot extends React.Component {
                     upgrades
                     .filter((upgrade) => upgrade.slot === slot)
                     .filter((upgrade) => upgrade.faction === faction || !upgrade.faction)
-                    .map((upgrade, i) => <option key={i}>{upgrade.name}</option>)
+                    .map((upgrade, i) => <option key={i}>{upgrade.name} ({upgrade.points})</option>)
                   }
                 </select>
               </div>
