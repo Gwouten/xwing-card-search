@@ -52,15 +52,16 @@ class Filter extends React.Component {
     this.props.setMaxPointsFilters(100);
   }
 
-  toggleFilterMenu = () => {
+  toggleFilterMenu = (e) => {
+    e.preventDefault();
     this.setState({
-      filterMenuHidden: !this.filterMenuHidden
+      filterMenuHidden: !this.state.filterMenuHidden
     });
   }
 
   render(){
     return (
-      <form className={`filter content-container ${this.state.filterMenuHidden && 'hidden'}`}>
+      <form className={`filter content-container ${this.state.filterMenuHidden ? 'hidden' : 'showing'}`}>
         <div className="filter__text__search">
           <input className="filter__input" type="text" name="textQuery" placeholder="Enter the text you're looking for" onChange={this.onTextFilter} />
           <button className="filter__text__search__button button" onClick={this.handleClear}>Clear</button>
