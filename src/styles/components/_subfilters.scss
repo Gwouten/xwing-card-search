@@ -1,25 +1,25 @@
-.pilotsFilter {
+.subFilter {
   width: 100%;
 }
-.pilotsFilter__button__group {
+.subFilter__button__group {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
-.pilotsFilter__text {
+.subFilter__text {
   text-align: center;
   padding: 0 $m-size;
 }
-.pilotsFilter__button--icon {
+.subFilter__button--icon {
   padding: $s-size/1.5;
   text-align: center;
 }
-.pilotsFilter__selection {
+.subFilter__selection {
   display: inline-block;
   letter-spacing: $s-size/2;
   transform: translateY(4px);
 }
-.pilotsFilter__button {
+.subFilter__button {
   margin: 0 25%;
   width: 50%;
 }

@@ -423,160 +423,167 @@ i.xwing-miniatures-font-unique:before {
   font-family: XWingShip;
   src: url("xwing-miniatures-ships.ttf"); }
 
-i.xwing-miniatures-ship {
+.xwing-miniatures-ship:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   font-family: XWingShip;
   font-style: normal;
-  font-size: 1.5em; }
+  font-size: 21rem;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  opacity: 0.2;
+   }
 
-i.xwing-miniatures-ship-aggressor:before {
+.xwing-miniatures-ship-aggressor:before {
   content: "i"; }
 
-i.xwing-miniatures-ship-arc170:before {
+.xwing-miniatures-ship-arc170:before {
   content: "c"; }
 
-i.xwing-miniatures-ship-attackshuttle:before {
+.xwing-miniatures-ship-attackshuttle:before {
   content: "g"; }
 
-i.xwing-miniatures-ship-auzituckgunship:before {
+.xwing-miniatures-ship-auzituckgunship:before {
   content: "@"; }
 
-i.xwing-miniatures-ship-awing:before {
+.xwing-miniatures-ship-awing:before {
   content: "a"; }
 
-i.xwing-miniatures-ship-bwing:before {
+.xwing-miniatures-ship-bwing:before {
   content: "b"; }
 
-i.xwing-miniatures-ship-cr90corvette:before {
+.xwing-miniatures-ship-cr90corvette:before {
   content: "2"; }
 
-i.xwing-miniatures-ship-croccruiser:before {
+.xwing-miniatures-ship-croccruiser:before {
   content: "C"; }
 
-i.xwing-miniatures-ship-ewing:before {
+.xwing-miniatures-ship-ewing:before {
   content: "e"; }
 
-i.xwing-miniatures-ship-firespray31:before {
+.xwing-miniatures-ship-firespray31:before {
   content: "f"; }
 
-i.xwing-miniatures-ship-g1astarfighter:before {
+.xwing-miniatures-ship-g1astarfighter:before {
   content: "n"; }
 
-i.xwing-miniatures-ship-gozanticlasscruiser:before {
+.xwing-miniatures-ship-gozanticlasscruiser:before {
   content: "4"; }
 
-i.xwing-miniatures-ship-gr75mediumtransport:before {
+.xwing-miniatures-ship-gr75mediumtransport:before {
   content: "1"; }
 
-i.xwing-miniatures-ship-hwk290:before {
+.xwing-miniatures-ship-hwk290:before {
   content: "h"; }
 
-i.xwing-miniatures-ship-ig2000:before {
+.xwing-miniatures-ship-ig2000:before {
   content: "i"; }
 
-i.xwing-miniatures-ship-jumpmaster5000:before {
+.xwing-miniatures-ship-jumpmaster5000:before {
   content: "p"; }
 
-i.xwing-miniatures-ship-kihraxzfighter:before {
+.xwing-miniatures-ship-kihraxzfighter:before {
   content: "r"; }
 
-i.xwing-miniatures-ship-kwing:before {
+.xwing-miniatures-ship-kwing:before {
   content: "k"; }
 
-i.xwing-miniatures-ship-lambdaclassshuttle:before {
+.xwing-miniatures-ship-lambdaclassshuttle:before {
   content: "l"; }
 
-i.xwing-miniatures-ship-lancerclasspursuitcraft:before {
+.xwing-miniatures-ship-lancerclasspursuitcraft:before {
   content: "L"; }
 
-i.xwing-miniatures-ship-m3ainterceptor:before {
+.xwing-miniatures-ship-m3ainterceptor:before {
   content: "s"; }
 
-i.xwing-miniatures-ship-protectoratestarfighter:before {
+.xwing-miniatures-ship-protectoratestarfighter:before {
   content: "M"; }
 
-i.xwing-miniatures-ship-quadjumper:before {
+.xwing-miniatures-ship-quadjumper:before {
   content: "q"; }
 
-i.xwing-miniatures-ship-raiderclasscorvette:before {
+.xwing-miniatures-ship-raiderclasscorvette:before {
   content: "3"; }
 
-i.xwing-miniatures-ship-scurrgh6bomber:before {
+.xwing-miniatures-ship-scurrgh6bomber:before {
   content: "H"; }
 
-i.xwing-miniatures-ship-starviper:before {
+.xwing-miniatures-ship-starviper:before {
   content: "v"; }
 
-i.xwing-miniatures-ship-t70xwing:before {
+.xwing-miniatures-ship-t70xwing:before {
   content: "w"; }
 
-i.xwing-miniatures-ship-tieadvanced:before {
+.xwing-miniatures-ship-tieadvanced:before {
   content: "A"; }
 
-i.xwing-miniatures-ship-tieadvancedprototype:before {
+.xwing-miniatures-ship-tieadvancedprototype:before {
   content: "R"; }
 
-i.xwing-miniatures-ship-tieadvprototype:before {
+.xwing-miniatures-ship-tieadvprototype:before {
   content: "R"; }
 
-i.xwing-miniatures-ship-tieaggressor:before {
+.xwing-miniatures-ship-tieaggressor:before {
   content: "`"; }
 
-i.xwing-miniatures-ship-tiebomber:before {
+.xwing-miniatures-ship-tiebomber:before {
   content: "B"; }
 
-i.xwing-miniatures-ship-tiedefender:before {
+.xwing-miniatures-ship-tiedefender:before {
   content: "D"; }
 
-i.xwing-miniatures-ship-tiefighter:before {
+.xwing-miniatures-ship-tiefighter:before {
   content: "F"; }
 
-i.xwing-miniatures-ship-tiefofighter:before {
+.xwing-miniatures-ship-tiefofighter:before {
   content: "O"; }
 
-i.xwing-miniatures-ship-tieinterceptor:before {
+.xwing-miniatures-ship-tieinterceptor:before {
   content: "I"; }
 
-i.xwing-miniatures-ship-tiephantom:before {
+.xwing-miniatures-ship-tiephantom:before {
   content: "P"; }
 
-i.xwing-miniatures-ship-tiepunisher:before {
+.xwing-miniatures-ship-tiepunisher:before {
   content: "N"; }
 
-i.xwing-miniatures-ship-tiesffighter:before {
+.xwing-miniatures-ship-tiesffighter:before {
   content: "S"; }
 
-i.xwing-miniatures-ship-tiestriker:before {
+.xwing-miniatures-ship-tiestriker:before {
   content: "T"; }
 
-i.xwing-miniatures-ship-upsilonclassshuttle:before {
+.xwing-miniatures-ship-upsilonclassshuttle:before {
   content: "U"; }
 
-i.xwing-miniatures-ship-uwing:before {
+.xwing-miniatures-ship-uwing:before {
   content: "u"; }
 
-i.xwing-miniatures-ship-vcx100:before {
+.xwing-miniatures-ship-vcx100:before {
   content: "G"; }
 
-i.xwing-miniatures-ship-vt49decimator:before {
+.xwing-miniatures-ship-vt49decimator:before {
   content: "d"; }
 
-i.xwing-miniatures-ship-xwing:before {
+.xwing-miniatures-ship-xwing:before {
   content: "x"; }
 
-i.xwing-miniatures-ship-yt1300:before {
+.xwing-miniatures-ship-yt1300:before {
   content: "m"; }
 
-i.xwing-miniatures-ship-yt2400:before {
+.xwing-miniatures-ship-yt2400:before {
   content: "o"; }
 
-i.xwing-miniatures-ship-yt2400freighter:before {
+.xwing-miniatures-ship-yt2400freighter:before {
   content: "o"; }
 
-i.xwing-miniatures-ship-yv666:before {
+.xwing-miniatures-ship-yv666:before {
   content: "t"; }
 
-i.xwing-miniatures-ship-ywing:before {
+.xwing-miniatures-ship-ywing:before {
   content: "y"; }
 
-i.xwing-miniatures-ship-z95headhunter:before {
+.xwing-miniatures-ship-z95headhunter:before {
   content: "z"; }

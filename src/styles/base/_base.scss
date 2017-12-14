@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  // outline: 1px solid red;
 }
 
 html {
@@ -22,5 +23,9 @@ button:disabled {
 }
 
 .is-active {
+  font-weight: bold;
+}
+
+strong {
   font-weight: bold;
 }
