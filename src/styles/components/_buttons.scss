@@ -6,4 +6,8 @@
   font-family: $jura;
   letter-spacing: 1px;
   padding: $s-size $m-size;
+  transition: all .1s;
+}
+.button:active {
+  transform: translateY(3px);
 }

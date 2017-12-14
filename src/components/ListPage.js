@@ -5,6 +5,7 @@ import Header from './Header';
 import Filter from './Filter';
 import PilotsList from './PilotsListPage';
 import UpgradesList from './UpgradesListPage';
+import Sorting from './Sorting';
 
 class ListPage extends React.Component {
   render(){
@@ -12,9 +13,10 @@ class ListPage extends React.Component {
       <div>
         <Header />
         <Filter />
-        <div>
+        <Sorting />
+        {/* <div>
           <button className="button" onClick={startLogin}>Login with Google</button>
-        </div>
+        </div> */}
         <div>
           {this.props.filters.cardTypePilot && <PilotsList />}
           {this.props.filters.cardTypeUpgrade && <UpgradesList />}

@@ -1,36 +1,55 @@
+@mixin box-shadow($x, $y, $size, $dist, $color) {
+  box-shadow: $x $y $size $dist $color;
+};
+
 .filter {
-  border: 1px solid $light-grey;
-  margin: $s-size;
-  padding: 0;
+  @include box-shadow(0, 0, 1rem, 0, $black);
+  background: $white;
+  height: 100vh;
+  padding: $s-size;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
 }
 .filter__text__search {
   display: flex;
 }
-.filter__text__search__input {
+.filter__input {
   background: $light-grey;
   border: none;
+  padding: $s-size/2;
   width: 100%;
+}
+.filter__input--points {
+  display: inline-block;
+  text-align: center;
+  width: 5rem;
+  margin: 0 $s-size;
 }
 .filter__title {
   font-family: $jura;
-  font-size: $font-size-large;
+  font-size: 2rem;
   text-align: center;
   width: 100%;
+  border-bottom: 1px solid $light-grey;
+  margin: $l-size 0 $s-size;
 }
-.filter__faction__search__wrapper {
+.filter__wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .filter__faction__search__radio-button {
   display: none;
 }
-.filter__faction__search__label {
+.filter__label {
   border: 1px solid $light-grey;
   color: $light-grey;
   cursor: pointer;
   display: block;
-  padding: $s-size 0;
+  font-family: $jura;
+  padding: $s-size/2 0;
   text-align: center;
   width: 20%;
   transition: all .3s ease-in-out;
@@ -40,8 +59,31 @@
   }
 }
 // checked labels
-input:checked + .filter__faction__search__label {
+input:checked + .filter__label {
   background: $blue;
   color: $white;
   border-color: $blue;
+}
+.filter__card__type__checkbox {
+  @extend .filter__faction__search__radio-button;
+}
+.filter__label--checkbox {
+  width: 47.5%;
+}
+
+.filter__points__text {
+  text-align: center;
+}
+.filter__points__button {
+  width: 50%;
+  margin: 0 25%;
+}
+.filter__toggle__button {
+  background: $orange;
+  bottom: 0;
+  margin: 0 0 1.2rem 0;
+  padding-left: 0;
+  padding-right: 0;
+  position: absolute;
+  width: calc(100% - 2.4rem);
 }
