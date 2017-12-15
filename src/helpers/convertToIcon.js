@@ -3,6 +3,12 @@ const convertToIcon = (slots) => {
   slots.map((slot) => {
     switch(slot) {
 
+      case "Modification":
+      return iconSlots.push("m");
+
+      case "Title":
+      return iconSlots.push("t");
+
       case "Crew":
       return iconSlots.push("W");
 

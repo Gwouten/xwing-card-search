@@ -1,0 +1,25 @@
+.subFilter {
+  width: 100%;
+}
+.subFilter__button__group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.subFilter__text {
+  text-align: center;
+  padding: 0 $m-size;
+}
+.subFilter__button--icon {
+  padding: $s-size/1.5;
+  text-align: center;
+}
+.subFilter__selection {
+  display: inline-block;
+  letter-spacing: $s-size/2;
+  transform: translateY(4px);
+}
+.subFilter__button {
+  margin: 0 25%;
+  width: 50%;
+}

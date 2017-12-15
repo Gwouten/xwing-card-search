@@ -1,0 +1,27 @@
+.sorting {
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  @include box-shadow(0, 0, 1rem, 0, $black);
+}
+.sorting__radio-button {
+  display: none;
+}
+.sorting__label {
+  @extend .filter__label;
+  align-items: center;
+  background: $white;
+  display: flex;
+  font-size: 1.4rem;
+  height: 60px;
+  justify-content: center;
+  line-height: 1;
+  border-top: none;
+  border-left: none;
+  &:last-child {
+    border-right: none;
+  }
+}

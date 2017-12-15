@@ -13,9 +13,9 @@ class UpgradesList extends React.Component {
 
   render() {
     return (
-      <div className="cardlist">
+      <div  className="content-container listwrapper">
+        <h2 className="listwrapper__title">Upgrades</h2>
         <UpgradesFilter />
-        <h2>Upgrades</h2>
         {this.props.upgrades.map((upgrade) => {
           return <SingleUpgrade key={upgrade.id} {...upgrade} />;
         })}

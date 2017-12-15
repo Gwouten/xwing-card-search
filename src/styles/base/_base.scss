@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  // outline: 1px solid red;
 }
 
 html {
@@ -8,7 +9,7 @@ html {
 
 body {
   color: $dark-grey;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: $spinnaker;
   font-size: $m-size;
   line-height: 1.6;
 }
@@ -23,4 +24,9 @@ button:disabled {
 
 .is-active {
   font-weight: bold;
+}
+
+strong {
+  text-decoration: underline;
+  font-style: italic;
 }
