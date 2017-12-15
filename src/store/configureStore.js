@@ -6,6 +6,7 @@ import upgradesReducer from '../reducers/upgrades';
 import filtersReducer from '../reducers/filters';
 import pilotsFilterReducer from '../reducers/pilotsFilter';
 import upgradesFilterReducer from '../reducers/upgradesFilter';
+import metaReducer from '../reducers/metaReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -17,7 +18,8 @@ export default () => {
       upgrades: upgradesReducer,
       filters: filtersReducer,
       pilotsFilter: pilotsFilterReducer,
-      upgradesFilter: upgradesFilterReducer
+      upgradesFilter: upgradesFilterReducer,
+      meta: metaReducer
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

@@ -1,12 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setSortMethod } from '../actions/filters';
+import { toggleFilterMenu } from '../actions/meta';
 
 class Sorting extends React.Component{
 
   onSetSortMethod = (e) => {
     const sortMethod = e.target.value;
     this.props.setSortMethod(sortMethod);
+  };
+
+  toggleFilterMenu = () => {
+    this.props.toggleFilterMenu();
   };
 
   render() {
@@ -64,6 +69,9 @@ class Sorting extends React.Component{
           onChange={this.onSetSortMethod}
           checked={this.props.filters.sortMethod === "pointsDesc"} />
         <label className="sorting__label" htmlFor="pointsDesc">Points:<br/>100&nbsp;-&nbsp;0</label>
+        <button className="filter__toggle__button button" onClick={this.toggleFilterMenu}>
+          <img src="./images/search-icon.svg" />
+        </button>
       </div>
     );
   }
@@ -75,6 +83,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setSortMethod: (sortMethod) => dispatch(setSortMethod(sortMethod)),
+  toggleFilterMenu: () => dispatch(toggleFilterMenu())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sorting);

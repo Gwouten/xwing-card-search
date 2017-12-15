@@ -1,16 +1,19 @@
-@mixin box-shadow($x, $y, $size, $dist, $color) {
-  box-shadow: $x $y $size $dist $color;
-};
-
 .filter {
   @include box-shadow(0, 0, 1rem, 0, $black);
   background: $white;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0 5%;
   padding: $s-size;
   position: fixed;
-  top: 0;
-  width: 100%;
+  top: 40%;
+  width: 90%;
   z-index: 2;
+  transform: translateY(-50%);
+  transition: transform .5s;
+}
+.filter--hidden {
+  transform: translateY(-200%);
 }
 .filter__text__search {
   display: flex;
@@ -34,11 +37,15 @@
   width: 100%;
   border-bottom: 1px solid $light-grey;
   margin: $l-size 0 $s-size;
+  @media (max-width: $desktop - 1) {
+    display: none;
+  };
 }
 .filter__wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin: $m-size 0;
 }
 .filter__faction__search__radio-button {
   display: none;
@@ -75,15 +82,29 @@ input:checked + .filter__label {
   text-align: center;
 }
 .filter__points__button {
-  width: 50%;
-  margin: 0 25%;
+  width: 100%;
+  // margin: 0 25%;
 }
 .filter__toggle__button {
+  @include box-shadow(0, 0, 1rem, 0, $black);
   background: $orange;
-  bottom: 0;
-  margin: 0 0 1.2rem 0;
+  border-radius: 50%;
+  bottom: 7.2rem;
+  height: 50px;
   padding-left: 0;
   padding-right: 0;
-  position: absolute;
-  width: calc(100% - 2.4rem);
+  position: fixed;
+  right: $s-size;
+  text-align: center;
+  width: 50px;
+  &:focus {
+    outline: none;
+  }
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+  }
 }

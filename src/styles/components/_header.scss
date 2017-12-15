@@ -1,6 +1,9 @@
 .header {
   background: $dark-blue;
   padding: $s-size;
+  position: relative;
+  z-index: 10;
+  @include box-shadow(0, 0, .5rem, 0, $black);
 }
 .header__title{
   color: $white;
