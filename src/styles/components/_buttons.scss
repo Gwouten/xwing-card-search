@@ -7,6 +7,9 @@
   letter-spacing: 1px;
   padding: $s-size $m-size;
   transition: all .1s;
+  &::selection {
+    background: transparent;
+  }
 }
 .button:active {
   transform: translateY(3px);

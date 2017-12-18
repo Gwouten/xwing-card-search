@@ -9,6 +9,7 @@ import {
   setMinPointsFilters,
   setMaxPointsFilters
 } from '../actions/filters';
+import { toggleFilterMenu } from '../actions/meta';
 
 class Filter extends React.Component {
 
@@ -48,12 +49,16 @@ class Filter extends React.Component {
     this.props.setMaxPointsFilters(100);
   }
 
+  toggleFilterMenu = () => {
+    this.props.toggleFilterMenu();
+  }
+
   render(){
     return (
       <div className={`filter content-container ${this.props.meta.filterMenuHidden && 'filter--hidden'}`}>
         <form>
           <div className="filter__text__search">
-            <input className="filter__input" type="text" name="textQuery" placeholder="Enter the text you're looking for" onChange={this.onTextFilter} />
+            <input className="filter__input" type="text" name="textQuery" placeholder="Search" onChange={this.onTextFilter} />
             <button className="filter__text__search__button button" onClick={this.handleClear}>Clear</button>
           </div>
 
@@ -146,6 +151,7 @@ class Filter extends React.Component {
             <button className="filter__points__button button" onClick={this.clearPoints}>Reset points range</button>
           </div>
         </form>
+        <button className="filter__close" onClick={this.toggleFilterMenu}>X</button>
       </div>
     );
   }
@@ -163,7 +169,8 @@ class Filter extends React.Component {
           setFactionFilters: (faction) => dispatch(setFactionFilters(faction)),
           setMinPointsFilters: (minPoints) => dispatch(setMinPointsFilters(minPoints)),
           setMaxPointsFilters: (maxPoints) => dispatch(setMaxPointsFilters(maxPoints)),
-          startSetFilters: (filters) => dispatch(startSetFilters(filters))
+          startSetFilters: (filters) => dispatch(startSetFilters(filters)),
+          toggleFilterMenu: () => dispatch(toggleFilterMenu())
         });
 
         export default connect(mapStateToProps, mapDispatchToProps)(Filter);

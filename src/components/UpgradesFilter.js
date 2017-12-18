@@ -18,6 +18,8 @@ class UpgradesFilter extends React.Component {
   render(){
     return (
       <div>
+        <button className="xwing-miniatures-font" onClick={this.onUpgradeFilterButton} value="Modification">m</button>
+        <button className="xwing-miniatures-font" onClick={this.onUpgradeFilterButton} value="Title">t</button>
         <button className="xwing-miniatures-font" onClick={this.onUpgradeFilterButton} value="Crew">W</button>
         <button className="xwing-miniatures-font" onClick={this.onUpgradeFilterButton} value="Elite">E</button>
         <button className="xwing-miniatures-font" onClick={this.onUpgradeFilterButton} value="Illicit">I</button>
@@ -34,8 +36,8 @@ class UpgradesFilter extends React.Component {
         <button className="xwing-miniatures-font" onClick={this.onUpgradeFilterButton} value="Team">T</button>
         <button className="xwing-miniatures-font" onClick={this.onUpgradeFilterButton} value="Cargo">G</button>
 
-        <p>Show only: <span className="xwing-miniatures-font">{convertToIcon(this.props.upgradesFilter)}</span></p>
-        <button onClick={this.onClearUpgradeFilterButton}>Clear</button>
+        <p className="subFilter__text">Show only: <span className="xwing-miniatures-font">{convertToIcon(this.props.upgradesFilter)}</span></p>
+        <button className="subFilter__button button" onClick={this.onClearUpgradeFilterButton}>Clear</button>
 
 
 

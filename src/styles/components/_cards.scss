@@ -1,4 +1,5 @@
 .listwrapper {
+  padding-bottom: 80px;
   @media (min-width: $desktop) {
     display: flex;
     flex-wrap: wrap;
@@ -55,4 +56,7 @@
 }
 .cardlist__card__text {
   margin-top: $s-size;
+}
+.list__empty-message {
+  padding-bottom: 5rem;
 }

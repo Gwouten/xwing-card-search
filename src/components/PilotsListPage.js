@@ -16,7 +16,7 @@ class PilotsList extends React.Component {
       <div className="content-container listwrapper">
         <h2 className="listwrapper__title">Pilots</h2>
         <PilotsFilter />
-          {this.props.pilots.length === 0 ?  <p>No pilots match the slected criteria...</p> : this.props.pilots.map((pilot) => {
+          {this.props.pilots.length === 0 ?  <p className="list__empty-message">No pilots match the selected criteria...</p> : this.props.pilots.map((pilot) => {
             return <SinglePilot key={pilot.id} {...pilot} />;
           })}
       </div>

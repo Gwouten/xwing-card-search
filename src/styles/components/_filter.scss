@@ -6,7 +6,7 @@
   margin: 0 5%;
   padding: $s-size;
   position: fixed;
-  top: 40%;
+  top: 45%;
   width: 90%;
   z-index: 2;
   transform: translateY(-50%);
@@ -107,4 +107,25 @@ input:checked + .filter__label {
     transform: translate(-50%, -50%);
     width: 60%;
   }
+}
+.filter__to-top {
+  @extend .filter__toggle__button;
+  right: $s-size * 2 + 5rem;
+  text-decoration: none;
+}
+.filter__close {
+  @include box-shadow(0, 0, 1rem, 0, $black);
+  background: $orange;
+  border: none;
+  border-radius: 50%;
+  color: $white;
+  display: block;
+  font-family: $jura;
+  font-size: 2.2rem;
+  line-height: 0;
+  height: 3rem;
+  width: 3rem;
+  position: absolute;
+  top: -1.5rem;
+  right: -1.5rem;
 }

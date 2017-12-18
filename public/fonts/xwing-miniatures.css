@@ -453,7 +453,10 @@ i.xwing-miniatures-font-unique:before {
 .xwing-miniatures-ship-bwing:before {
   content: "b"; }
 
-.xwing-miniatures-ship-cr90corvette:before {
+.xwing-miniatures-ship-cr90corvettefore:before {
+  content: "2"; }
+
+.xwing-miniatures-ship-cr90corvetteaft:before {
   content: "2"; }
 
 .xwing-miniatures-ship-croccruiser:before {
@@ -504,7 +507,10 @@ i.xwing-miniatures-font-unique:before {
 .xwing-miniatures-ship-quadjumper:before {
   content: "q"; }
 
-.xwing-miniatures-ship-raiderclasscorvette:before {
+.xwing-miniatures-ship-raiderclasscorvettefore:before {
+  content: "3"; }
+
+.xwing-miniatures-ship-raiderclasscorvetteaft:before {
   content: "3"; }
 
 .xwing-miniatures-ship-scurrgh6bomber:before {

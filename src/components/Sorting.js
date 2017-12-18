@@ -12,7 +12,11 @@ class Sorting extends React.Component{
 
   toggleFilterMenu = () => {
     this.props.toggleFilterMenu();
-  };
+  }
+
+  scrollToTop = () => {
+    window.scrollTo(0,0);
+  }
 
   render() {
     return (
@@ -72,6 +76,7 @@ class Sorting extends React.Component{
         <button className="filter__toggle__button button" onClick={this.toggleFilterMenu}>
           <img src="./images/search-icon.svg" />
         </button>
+        <button className="filter__to-top button" onClick={this.scrollToTop}>Top</button>
       </div>
     );
   }
