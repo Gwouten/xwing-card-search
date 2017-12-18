@@ -1,7 +1,7 @@
 import sortMethodFunction from './sortMethods';
 
 // filterString
-const filterString = (item, text) => {
+const filterString = (item, textArray) => {
   const queryText = text.toLowerCase();
   const itemName = item.name.toLowerCase();
   let itemText = '';
@@ -81,8 +81,12 @@ export const filterPilotResults = ({ text, faction, minPoints = -3, maxPoints = 
     }
   }
 
+  // Convert text string to array to allow AND/OR searches
+  const textArray = text.split(' ').map((item) => item.toLowerCase());
+  console.log(textArray);
+
   return data
-  .filter((item) => filterString(item, text))
+  .filter((item) => filterString(item, textArray))
   .filter((item) => filterFaction(item, faction))
   .filter((item) => filterValues(item, minPoints, maxPoints))
   // filter on upgrade slots
