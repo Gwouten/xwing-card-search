@@ -53,12 +53,21 @@ class Filter extends React.Component {
     this.props.toggleFilterMenu();
   }
 
+  // on function to rule them all!
+  onSubmit = (e) => {
+    e.preventDefault();
+    const text = e.target.textQuery.value;
+    console.log(text);
+    this.props.setTextFilters(text);
+
+  }
+
   render(){
     return (
       <div className={`filter content-container ${this.props.meta.filterMenuHidden && 'filter--hidden'}`}>
-        <form>
+        <form onSubmit={this.onSubmit}>
           <div className="filter__text__search">
-            <input className="filter__input" type="text" name="textQuery" placeholder="Search" onChange={this.onTextFilter} />
+            <input className="filter__input" type="text" name="textQuery" placeholder="Search" />
             <button className="filter__text__search__button button" onClick={this.handleClear}>Clear</button>
           </div>
 
@@ -148,7 +157,8 @@ class Filter extends React.Component {
                 onFocus={this.onMaxPointsFocus}
                 value={this.props.filters.maxPoints} />
             </p>
-            <button className="filter__points__button button" onClick={this.clearPoints}>Reset points range</button>
+            {/* <button className="filter__points__button button" onClick={this.clearPoints}>Reset points range</button> */}
+            <button className="filter__points__button button">Search</button>
           </div>
         </form>
         <button className="filter__close" onClick={this.toggleFilterMenu}>X</button>

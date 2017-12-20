@@ -1,20 +1,37 @@
 import sortMethodFunction from './sortMethods';
 
 // filterString
-const filterString = (item, textArray) => {
-  const queryText = text.toLowerCase();
-  const itemName = item.name.toLowerCase();
-  let itemText = '';
-  if(item.hasOwnProperty('text')){
-    itemText = item.text.toLowerCase();
-  }
+// const filterString = (item, textArray) => {
+//   // const queryText = text.toLowerCase();
+//   const itemName = item.name.toLowerCase();
+//   let itemText = '';
+//   if(item.hasOwnProperty('text')){
+//     itemText = item.text.toLowerCase();
+//   }
+//
+//   if (itemName.includes(queryText) || itemText.includes(queryText)) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
-  if (itemName.includes(queryText) || itemText.includes(queryText)) {
-    return true;
-  } else {
-    return false;
+  const filterString = (item, textArray) => {
+
+     const itemName = item.name.toLowerCase();
+     let itemText = '';
+
+     if(item.hasOwnProperty('text')){
+       itemText = item.text.toLowerCase();
+     }
+
+     const result = textArray.map((text) => {
+       text = text.toLowerCase();
+       return itemName.includes(text) || itemText.includes(text);
+     });
+
+     return result.indexOf(false) == -1; // all search terms are found, in no specific order
   }
-}
 
 // filter on faction
 const filterFaction = (item, faction) => {
@@ -106,8 +123,10 @@ export const filterPilotResults = ({ text, faction, minPoints = -3, maxPoints = 
 
 export const filterUpgradeResults = ({ text, faction, minPoints = -3, maxPoints = 100, sortMethod }, data, slots) => {
 
+  const textArray = text.split(' ').map((item) => item.toLowerCase());
+
   return data
-  .filter((item) => filterString(item, text))
+  .filter((item) => filterString(item, textArray))
   .filter((item) => filterFaction(item, faction))
   .filter((item) => filterValues(item, minPoints, maxPoints))
   // filter on card type
