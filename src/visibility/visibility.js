@@ -1,37 +1,25 @@
 import sortMethodFunction from './sortMethods';
 
 // filterString
-// const filterString = (item, textArray) => {
-//   // const queryText = text.toLowerCase();
-//   const itemName = item.name.toLowerCase();
-//   let itemText = '';
-//   if(item.hasOwnProperty('text')){
-//     itemText = item.text.toLowerCase();
-//   }
-//
-//   if (itemName.includes(queryText) || itemText.includes(queryText)) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
+const filterString = (item, textArray) => {
 
-  const filterString = (item, textArray) => {
+   const itemName = item.name.toLowerCase();
+   let itemText = '';
 
-     const itemName = item.name.toLowerCase();
-     let itemText = '';
+   if(item.hasOwnProperty('text')){
+     itemText = item.text.toLowerCase();
+   }
 
-     if(item.hasOwnProperty('text')){
-       itemText = item.text.toLowerCase();
+   const result = textArray.map((text) => {
+     text = text.toLowerCase();
+     if (text === 'ion') {
+       text = ' ion';
      }
+     return itemName.includes(text) || itemText.includes(text);
+   });
 
-     const result = textArray.map((text) => {
-       text = text.toLowerCase();
-       return itemName.includes(text) || itemText.includes(text);
-     });
-
-     return result.indexOf(false) == -1; // all search terms are found, in no specific order
-  }
+   return result.indexOf(false) == -1; // all search terms are found, in no specific order
+}
 
 // filter on faction
 const filterFaction = (item, faction) => {
@@ -100,7 +88,6 @@ export const filterPilotResults = ({ text, faction, minPoints = -3, maxPoints = 
 
   // Convert text string to array to allow AND/OR searches
   const textArray = text.split(' ').map((item) => item.toLowerCase());
-  console.log(textArray);
 
   return data
   .filter((item) => filterString(item, textArray))

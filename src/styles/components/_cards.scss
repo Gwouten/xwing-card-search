@@ -1,5 +1,6 @@
 .listwrapper {
-  padding-bottom: 80px;
+  margin-bottom: 75px;
+  position: relative;
   @media (min-width: $desktop) {
     display: flex;
     flex-wrap: wrap;

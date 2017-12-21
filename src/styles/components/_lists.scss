@@ -1,0 +1,21 @@
+.lists__wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: $s-size 0;
+}
+.lists__button {
+  margin: 0 $s-size;
+}
+.list__button--hide {
+  @extend .lists__button;
+  position: absolute;
+  top: 2.4rem;
+  right: $s-size;
+  background: $light-grey;
+  border-radius: 2rem;
+  padding: 5px 10px;
+  transition: background .3s;
+  &:hover {
+    background: darken($light-grey, 10%);
+  }
+}

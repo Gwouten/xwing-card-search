@@ -18,11 +18,6 @@ class Filter extends React.Component {
     this.props.setTextFilters(text);
   }
 
-  onFactionSelect = (e) => {
-    const faction = e.target.value;
-    this.props.setFactionFilters(faction);
-  }
-
   onPilotSelected = () => {
     this.props.setPilotsSelected(!this.props.filters.cardTypePilot);
   }
@@ -41,6 +36,8 @@ class Filter extends React.Component {
 
   onSetMaxPoints = (e) => { this.props.setMaxPointsFilters(e.target.value) }
 
+  onMinPointsFocus = () => { this.props.setMinPointsFilters('')}
+
   onMaxPointsFocus = () => { this.props.setMaxPointsFilters('')}
 
   clearPoints = (e) => {
@@ -53,13 +50,17 @@ class Filter extends React.Component {
     this.props.toggleFilterMenu();
   }
 
-  // on function to rule them all!
+  onFactionSelect = (e) => {
+    const faction = e.target.value;
+    this.props.setFactionFilters(faction);
+  }
+
+  // one function to rule them all!
   onSubmit = (e) => {
     e.preventDefault();
     const text = e.target.textQuery.value;
-    console.log(text);
     this.props.setTextFilters(text);
-
+    this.toggleFilterMenu();
   }
 
   render(){
@@ -145,6 +146,7 @@ class Filter extends React.Component {
                 max="100"
                 step="1"
                 onChange={this.onSetMinPoints}
+                onFocus={this.onMinPointsFocus}
                 value={this.props.filters.minPoints} />
              and
               <input
