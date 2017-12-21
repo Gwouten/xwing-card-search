@@ -129,3 +129,19 @@ input:checked + .filter__label {
   top: -1.5rem;
   right: -1.5rem;
 }
+.filter__background {
+  background: rgba(0,0,0,.5);
+  height: 100vh;
+  left: 0;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 1;
+  transition: opacity .3s;
+}
+.filter__background--hidden {
+  opacity: 0;
+  pointer-events: none;
+  // transform: translateY(-101%);
+}
