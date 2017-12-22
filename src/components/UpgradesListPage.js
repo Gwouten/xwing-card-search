@@ -1,16 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { startUpgradesList } from '../actions/upgrades';
 import UpgradesFilter from '../components/UpgradesFilter';
 import SingleUpgrade from '../components/SingleUpgrade';
 import { filterUpgradeResults } from '../visibility/visibility';
 import { setcardTypeUpgradeFilters } from '../actions/filters';
 
 class UpgradesList extends React.Component {
-
-  componentDidMount() {
-    this.props.startUpgradesList('https://raw.githubusercontent.com/guidokessels/xwing-data/master/data/upgrades.js');
-  }
 
   onHide = () => {
     this.props.setUpgradesSelected(!this.props.filters.cardTypeUpgrade);
@@ -39,8 +34,7 @@ const mapStateToProps = (state) => (
 
 const mapDispatchToProps = (dispatch) => ({
   startLogin: () => dispatch(startLogin()),
-  startUpgradesList: (url) => {return dispatch(startUpgradesList(url))},
-  setUpgradesSelected: (cardTypeUpgrade) => dispatch(setcardTypeUpgradeFilters(cardTypeUpgrade)),
+  setUpgradesSelected: (cardTypeUpgrade) => dispatch(setcardTypeUpgradeFilters(cardTypeUpgrade))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UpgradesList);

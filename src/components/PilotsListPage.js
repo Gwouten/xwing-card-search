@@ -1,16 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { startPilotsList } from '../actions/pilots';
 import SinglePilot from '../components/SinglePilot';
 import PilotsFilter from '../components/PilotsFilter';
 import { filterPilotResults } from '../visibility/visibility';
 import { setcardTypePilotFilters } from '../actions/filters';
 
 class PilotsList extends React.Component {
-
-  componentDidMount() {
-    this.props.startPilotsList('https://raw.githubusercontent.com/guidokessels/xwing-data/master/data/pilots.js');
-  }
 
   onHide = () => {
     this.props.setPilotsSelected(!this.props.filters.cardTypePilot);
@@ -38,7 +33,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   startLogin: () => dispatch(startLogin()),
-  startPilotsList: (url) => {return dispatch(startPilotsList(url))},
   setPilotsSelected: (cardTypePilot) => dispatch(setcardTypePilotFilters(cardTypePilot)),
 });
 

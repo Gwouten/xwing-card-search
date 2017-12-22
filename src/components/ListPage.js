@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { startPilotsList } from '../actions/pilots';
+import { startUpgradesList } from '../actions/upgrades';
 import { startLogin } from '../actions/auth';
 import Header from './Header';
 import Filter from './Filter';
@@ -9,6 +11,11 @@ import Sorting from './Sorting';
 import { setcardTypePilotFilters, setcardTypeUpgradeFilters } from '../actions/filters';
 
 class ListPage extends React.Component {
+
+  componentDidMount() {
+    this.props.startPilotsList('https://raw.githubusercontent.com/guidokessels/xwing-data/master/data/pilots.js');
+    this.props.startUpgradesList('https://raw.githubusercontent.com/guidokessels/xwing-data/master/data/upgrades.js');
+  }
 
   showPilots = () => {
     this.props.setPilotsSelected(!this.props.filters.cardTypePilot);
@@ -43,6 +50,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   startLogin: () => dispatch(startLogin()),
+  startPilotsList: (url) => {return dispatch(startPilotsList(url))},
+  startUpgradesList: (url) => {return dispatch(startUpgradesList(url))},
   setPilotsSelected: (cardTypePilot) => dispatch(setcardTypePilotFilters(cardTypePilot)),
   setUpgradesSelected: (cardTypeUpgrade) => dispatch(setcardTypeUpgradeFilters(cardTypeUpgrade))
 });
