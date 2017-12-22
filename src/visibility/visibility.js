@@ -11,10 +11,24 @@ const filterString = (item, textArray) => {
    }
 
    const result = textArray.map((text) => {
+
+     // Highlight the search queries in the text
+     if(text.length > 0) {
+       // Create RegExp object
+       const toReplace = new RegExp(text, "gi")
+       const replaceWith = '<span class="highlight">'+text+'</span>';
+       if(item.hasOwnProperty('text')){
+         const newText = item.text.replace(toReplace, replaceWith);
+         console.log(newText);
+         item.text = newText;
+       }
+     }
+
      text = text.toLowerCase();
      if (text === 'ion') {
        text = ' ion';
      }
+
      return itemName.includes(text) || itemText.includes(text);
    });
 

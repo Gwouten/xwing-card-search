@@ -4,7 +4,7 @@ import convertToIcon from '../helpers/convertToIcon';
 
 const SingleUpgrade = ({ name, id, slot, points, attack, range, text, image, xws, effect, unique, limited, faction }) => (
   <div className={`cardlist__card ${faction ? faction.split(' ')[0] : ''}`}>
-    <h3 className="cardlist__card__title">{unique && "•"} {name}</h3>
+    <h3 className="cardlist__card__title">{unique && "•"} {ReactHtmlParser(name)}</h3>
     <h4 className="cardlist__card__subtitle">{limited && ' - limited'}</h4>
     <p className="cardlist__card__text">{text ? ReactHtmlParser(text) : '-'}</p>
     {attack && <p>Attack: {attack}</p>}

@@ -5,6 +5,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  @media (min-width: $desktop) {
+    justify-content: center;
+  }
 }
 .subFilter__text {
   text-align: center;
