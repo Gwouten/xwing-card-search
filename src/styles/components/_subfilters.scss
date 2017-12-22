@@ -11,6 +11,8 @@
   padding: 0 $m-size;
 }
 .subFilter__button--icon {
+  background: transparent;
+  border: none;
   padding: $s-size/1.5;
   text-align: center;
 }
